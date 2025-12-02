@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>مشاهدة الإعلان للحصول على الحساب</title>
+<title>مشاهدة الإعلان للحصول ععععععلى الحساب</title>
 
 <!-- كود التحقق من ExoClick -->
 <meta name="6a97888e-site-verification" content="247d3541f02adad5a94ec78c9788dfe6">
@@ -42,13 +42,17 @@ button {
 
 <h1>اضغط على الزر وشاهد الإعلان للحصول على الحساب</h1>
 
-<button onclick="showAds()"> مشاهدة الإعلان </button>
+<button id="watch-btn"> مشاهدة الإعلان </button>
 
 <div id="ads">
     <h2>🔍 شاهد الإعلان أدناه:</h2>
     <div id="ad-box">
-        <!-- ضَع هنا كود الإعلان ديالك من ExoClick -->
-        <p style="color: #aaa;">سيظهر الإعلان هنا...</p>
+        <!-- كود ExoClick هنا -->
+        <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+        <ins class="adsbyexoclick" data-zoneid="1234567"></ins>
+        <script>
+          (AdProvider = window.AdProvider || []).push({"serve": {}});
+        </script>
     </div>
     <p id="timer" style="font-size:20px; margin-top:20px;"></p>
 </div>
@@ -60,12 +64,20 @@ button {
 </div>
 
 <script>
-function showAds() {
+const watchBtn = document.getElementById("watch-btn");
+watchBtn.addEventListener("click", () => {
+    watchBtn.style.display = "none"; // إخفاء الزر بعد الضغط
     document.getElementById("ads").style.display = "block";
-    let t = 15; // عدد الثواني
-    let timerText = document.getElementById("timer");
 
-    let countdown = setInterval(() => {
+    // نبدأ العد بعد 2 ثواني للسماح للإعلان بالتحميل
+    setTimeout(startCountdown, 2000);
+});
+
+function startCountdown() {
+    let t = 15; // مدة المشاهدة بالثواني
+    const timerText = document.getElementById("timer");
+
+    const countdown = setInterval(() => {
         timerText.innerHTML = "⏳ يجب عليك مشاهدة الإعلان لمدة: " + t + " ثانية";
         t--;
 
