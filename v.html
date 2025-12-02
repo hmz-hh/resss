@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Watch Ad To Unlock</title>
+<style>
+body { font-family: Arial; text-align: center; background: #111; color: #fff; padding: 20px; }
+#accountBox { display: none; background:#222; padding:20px; border-radius:10px; margin-top:20px; }
+#timer { font-size: 22px; margin-top: 15px; color: #00ffea; }
+#adbox { margin:20px auto; width:320px; min-height:280px; background:#000; padding:10px; border-radius:10px; }
+</style>
+</head>
+<body>
+
+<h2>🎥 شاهد الإعلان بالكامل لفتح الحساب</h2>
+
+<div id="adbox">
+    <!-- Magsrv Ad -->
+    <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+    <ins class="eas6a97888e2" data-zoneid="5788170"></ins>
+    <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+</div>
+
+<h3 id="timer">⏳ الرجاء تشغيل الإعلان أولاً...</h3>
+
+<div id="accountBox">
+    <h2>✅ حسابك جاهز</h2>
+    <p><b>Username:</b> testuser</p>
+    <p><b>Password:</b> 12345</p>
+</div>
+
+<script>
+let adStarted = false;
+let countdownStarted = false;
+
+// ⛔ منع الغش
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        location.reload(); // لو خرج من الصفحة → إعادة تشغيل
+    }
+});
+
+// 🔥 مراقبة بداية الإعلان تلقائياً كل 1 ثانية
+let checkAd = setInterval(() => {
+    let adFrame = document.querySelector("ins iframe");
+
+    if (adFrame) {
+        adStarted = true;
+    }
+
+    if (adStarted && !countdownStarted) {
+        countdownStarted = true;
+        startCountdown();
+        clearInterval(checkAd);
+    }
+}, 1000);
+
+// 🔥 مؤقت 30 ثانية
+function startCountdown() {
+    let seconds = 30;
+    let timerText = document.getElementById("timer");
+
+    let interval = setInterval(() => {
+        timerText.textContent = "⏳ الرجاء الانتظار: " + seconds + " ثانية";
+        seconds--;
+
+        if (seconds < 0) {
+            clearInterval(interval);
+
+            timerText.textContent = "✔ تم فتح الحساب!";
+            document.getElementById("accountBox").style.display = "block";
+        }
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
