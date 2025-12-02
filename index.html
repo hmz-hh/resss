@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>مشاهدة الإعلان للحصول على الحساب</title>
+
+<!-- كود التحقق من ExoClick -->
+<meta name="6a97888e-site-verification" content="247d3541f02adad5a94ec78c9788dfe6">
+
+<style>
+body {
+    background: #111;
+    color: #fff;
+    font-family: Arial;
+    text-align: center;
+    padding-top: 80px;
+}
+button {
+    padding: 15px 30px;
+    font-size: 22px;
+    background: #00c4ff;
+    border: none;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#ads, #info {
+    margin-top: 30px;
+    display: none;
+}
+#ad-box {
+    width: 100%;
+    height: 250px;
+    background: #222;
+    border: 2px dashed #666;
+    margin-top: 20px;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>اضغط على الزر وشاهد الإعلان للحصول على الحساب</h1>
+
+<button onclick="showAds()"> مشاهدة الإعلان </button>
+
+<div id="ads">
+    <h2>🔍 شاهد الإعلان أدناه:</h2>
+    <div id="ad-box">
+        <!-- ضَع هنا كود الإعلان ديالك من ExoClick -->
+        <p style="color: #aaa;">سيظهر الإعلان هنا...</p>
+    </div>
+    <p id="timer" style="font-size:20px; margin-top:20px;"></p>
+</div>
+
+<div id="info">
+    <h2>🎁 معلومات الحساب:</h2>
+    <p><b>Username:</b> user2025</p>
+    <p><b>Password:</b> pass5566</p>
+</div>
+
+<script>
+function showAds() {
+    document.getElementById("ads").style.display = "block";
+    let t = 15; // عدد الثواني
+    let timerText = document.getElementById("timer");
+
+    let countdown = setInterval(() => {
+        timerText.innerHTML = "⏳ يجب عليك مشاهدة الإعلان لمدة: " + t + " ثانية";
+        t--;
+
+        if (t < 0) {
+            clearInterval(countdown);
+            document.getElementById("info").style.display = "block";
+            timerText.innerHTML = "✔ تمت المشاهدة، تم فتح الحساب!";
+        }
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
