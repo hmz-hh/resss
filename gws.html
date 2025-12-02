@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>مشاهدة الإعلان للحصول على الحساب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- كود ExoClick الرسمي -->
+<script async type="application/javascript" src="https://a.pemsrv.com/ad-provider.js"></script>
+
+<style>
+body {
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 60px;
+}
+button {
+    padding: 15px 30px;
+    font-size: 22px;
+    background: #00c4ff;
+    border: none;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#ad-container, #info {
+    margin-top: 30px;
+    display: none;
+}
+#ad-box {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+    background: #222;
+    border: 2px dashed #777;
+    padding: 15px;
+    border-radius: 10px;
+}
+#timer {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #0f0;
+}
+</style>
+</head>
+<body>
+
+<h1>اضغط على الزر وشاهد الإعلان للحصول على الحساب</h1>
+
+<button onclick="startAd()">مشاهدة الإعلان</button>
+
+<div id="ad-container">
+    <h2>🔍 شاهد الإعلان أدناه:</h2>
+
+    <div id="ad-box">
+        <!-- إعلان ExoClick الجديد -->
+        <ins class="eas6a97888e33" data-zoneid="5788166" data-block-ad-types="0"></ins>
+        <script>
+            (AdProvider = window.AdProvider || []).push({"serve": {}});
+        </script>
+    </div>
+
+    <p id="timer"></p>
+</div>
+
+<div id="info">
+    <h2>🎁 معلومات الحساب:</h2>
+    <p><b>Username:</b> user2025</p>
+    <p><b>Password:</b> pass5566</p>
+</div>
+
+<script>
+function startAd() {
+    document.getElementById("ad-container").style.display = "block";
+
+    let t = 15; // عدد الثواني
+    let timerText = document.getElementById("timer");
+
+    let countdown = setInterval(() => {
+        timerText.innerHTML = "⏳ يجب عليك مشاهدة الإعلان لمدة: " + t + " ثانية";
+        t--;
+
+        if (t < 0) {
+            clearInterval(countdown);
+            document.getElementById("info").style.display = "block";
+            timerText.innerHTML = "✔ تمت المشاهدة، تم فتح الحساب!";
+        }
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
