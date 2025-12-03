@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحصول على حساب مجاني</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            color: #00c4ff;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .description {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(to right, #00c4ff, #0077ff);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 196, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 196, 255, 0.5);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to right, #666, #444);
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #00c4ff;
+            color: #000;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .step-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #00ffaa;
+        }
+        
+        .step-description {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        .actions {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .steps {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .step {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🆓 الحصول على حساب مجاني</h1>
+            <p class="description">
+                اتبع الخطوات البسيطة أدناه للحصول على حساب مجاني بشكل كامل
+            </p>
+        </header>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title">قم بتنزيل تطبيق Termux</div>
+                <div class="step-description">قم بتنزيل وتثبيت تطبيق Termux على هاتفك الذكي من متجر التطبيقات</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">اضغط على زر الحصول على حساب</div>
+                <div class="step-description">انتقل إلى صفحة الحساب واتبع التعليمات المطلوبة</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">اتبع التعليمات المطلوبة</div>
+                <div class="step-description">نفذ الخطوات الموجودة في صفحة الحساب للحصول على حسابك المجاني</div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="account.html" class="btn">🚀 الحصول على حساب</a>
+            <a href="https://f-droid.org/en/packages/com.termux/" target="_blank" class="btn btn-secondary">📲 تنزيل Termux</a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="tutorial.html" class="btn btn-secondary">▶️ مشاهدة طريقة التشغيل</a>
+            <a href="support.html" class="btn btn-secondary">📞 تواصل مع الدعم</a>
+        </div>
+        
+        <footer>
+            <p>هذه الصفحة لأغراض تعليمية وتوضيحية فقط</p>
+            <p>© 2023 - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+</body>
+</html>
