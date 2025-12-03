@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>احصل على الحساب بعد الإعلان</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- كود ExoClick -->
+<script async type="application/javascript" src="https://a.pemsrv.com/ad-provider.js"></script>
+
+<style>
+body {
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 60px;
+}
+button {
+    padding: 15px 30px;
+    font-size: 22px;
+    background: #00c4ff;
+    border: none;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#timer {
+    font-size: 22px;
+    margin-top: 15px;
+    color: #0f0;
+}
+</style>
+</head>
+<body>
+
+<h1>اضغط على الزر للحصول على الحساب</h1>
+
+<button id="startBtn">احصل على الحساب</button>
+<p id="timer"></p>
+
+<script>
+document.getElementById("startBtn").onclick = function () {
+    // إخفاء الزر بعد الضغط
+    this.style.display = "none";
+
+    // إضافة الإعلان fullpage مباشرة في body
+    const ad = document.createElement("ins");
+    ad.className = "eas6a97888e33";
+    ad.setAttribute("data-zoneid", "5788172");
+    ad.setAttribute("data-keywords", "safe,clean,family,gaming");
+    ad.setAttribute("data-sub", "123450000");
+    ad.setAttribute("data-block-ad-types", "0");
+    document.body.appendChild(ad);
+
+    (AdProvider = window.AdProvider || []).push({"serve": {}});
+
+    // بدء عداد 30 ثانية
+    const timer = document.getElementById("timer");
+    let seconds = 30;
+    const interval = setInterval(() => {
+        timer.textContent = "⏳ الرجاء مشاهدة الإعلان: " + seconds + " ثانية";
+        seconds--;
+        if (seconds < 0) {
+            clearInterval(interval);
+            window.location.href = "https://ha-vps.store/account";
+        }
+    }, 1000);
+
+    // منع الخروج من الصفحة
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) location.reload();
+    });
+};
+</script>
+
+</body>
+</html>
