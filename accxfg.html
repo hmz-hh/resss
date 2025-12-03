@@ -1,539 +1,73 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الحصول على حساب - التعليمات</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            min-height: 100vh;
-            padding: 20px;
-            direction: rtl;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        h1 {
-            color: #00c4ff;
-            margin-bottom: 10px;
-            font-size: 32px;
-        }
-        
-        .description {
-            color: #ccc;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            background: linear-gradient(to right, #00c4ff, #0077ff);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 8px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 196, 255, 0.3);
-            min-width: 200px;
-            text-align: center;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 196, 255, 0.5);
-        }
-        
-        .btn:active {
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(to right, #666, #444);
-        }
-        
-        .btn-success {
-            background: linear-gradient(to right, #00cc66, #00994d);
-            box-shadow: 0 5px 15px rgba(0, 200, 100, 0.3);
-        }
-        
-        .btn-success:hover {
-            box-shadow: 0 10px 25px rgba(0, 200, 100, 0.5);
-        }
-        
-        .btn-warning {
-            background: linear-gradient(to right, #ff9900, #cc7700);
-            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
-        }
-        
-        .btn-warning:hover {
-            box-shadow: 0 10px 25px rgba(255, 153, 0, 0.5);
-        }
-        
-        .instructions {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        h2 {
-            color: #00ffaa;
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 28px;
-        }
-        
-        h3 {
-            color: #00c4ff;
-            margin: 25px 0 15px 0;
-            font-size: 22px;
-            border-right: 4px solid #00c4ff;
-            padding-right: 15px;
-        }
-        
-        .step {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            border-right: 5px solid #00c4ff;
-            transition: transform 0.3s ease;
-        }
-        
-        .step:hover {
-            transform: translateX(-5px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .step-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #00c4ff;
-            color: #000;
-            border-radius: 50%;
-            line-height: 40px;
-            font-weight: bold;
-            text-align: center;
-            margin-left: 15px;
-            font-size: 20px;
-            box-shadow: 0 4px 8px rgba(0, 196, 255, 0.3);
-        }
-        
-        .code-block {
-            background: #111;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 5px solid #00ffaa;
-            font-family: 'Cascadia Code', 'Courier New', monospace;
-            font-size: 18px;
-            color: #00ffaa;
-            position: relative;
-            overflow: hidden;
-            line-height: 1.6;
-        }
-        
-        .copy-btn {
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            background: rgba(0, 255, 170, 0.2);
-            color: #00ffaa;
-            border: 1px solid #00ffaa;
-            border-radius: 8px;
-            padding: 8px 15px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .copy-btn:hover {
-            background: rgba(0, 255, 170, 0.4);
-            transform: scale(1.05);
-        }
-        
-        .success-message {
-            background: rgba(0, 200, 100, 0.2);
-            border: 1px solid #00cc66;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            text-align: center;
-            color: #00ffaa;
-            font-size: 20px;
-            box-shadow: 0 5px 15px rgba(0, 200, 100, 0.2);
-        }
-        
-        .note {
-            background: rgba(255, 200, 0, 0.1);
-            border: 1px solid rgba(255, 200, 0, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 30px;
-            color: #ffcc00;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        .actions {
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .action-buttons .btn {
-            flex: 1;
-            min-width: 220px;
-            padding: 18px 30px;
-            margin: 5px;
-        }
-        
-        .buttons-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 25px 0;
-        }
-        
-        .buttons-row .btn {
-            flex: 1;
-            min-width: 180px;
-            padding: 15px 25px;
-            margin: 5px;
-            font-size: 16px;
-        }
-        
-        .quick-actions {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .quick-actions h3 {
-            border: none;
-            text-align: center;
-            padding: 0;
-            margin-bottom: 25px;
-            color: #ffcc00;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #888;
-            font-size: 16px;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 24px;
-            }
-            
-            h2 {
-                font-size: 22px;
-            }
-            
-            .btn {
-                padding: 14px 25px;
-                font-size: 16px;
-                min-width: 160px;
-                width: 100%;
-                margin: 8px 0;
-            }
-            
-            .action-buttons .btn {
-                min-width: 100%;
-            }
-            
-            .buttons-row .btn {
-                min-width: 100%;
-            }
-            
-            .code-block {
-                font-size: 16px;
-                padding: 15px;
-            }
-            
-            .copy-btn {
-                position: relative;
-                left: 0;
-                top: 0;
-                margin-bottom: 15px;
-                display: inline-block;
-            }
-            
-            .instructions {
-                padding: 20px;
-            }
-            
-            .step {
-                padding: 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-            
-            header {
-                padding: 15px;
-            }
-            
-            .btn {
-                padding: 12px 20px;
-                font-size: 15px;
-            }
-            
-            .code-block {
-                font-size: 14px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>البطاقات</title>
+
+<style>
+body {
+    font-family: sans-serif;
+    background: #f2f2f2;
+    margin: 0; padding: 20px;
+}
+
+.card {
+    background: #fff;
+    width: 95%;
+    max-width: 500px;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    text-align: center;
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background: #0056d2;
+}
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🔧 خطوات الحصول على حساب مجاني</h1>
-            <p class="description">
-                اتبع هذه الخطوات بالترتيب للحصول على حسابك المجاني بنجاح
-            </p>
-            
-            <div class="action-buttons">
-                <a href="index.html" class="btn btn-secondary">🏠 الصفحة الرئيسية</a>
-                <a href="tutorial.html" class="btn btn-warning">▶️ فيديو الشرح</a>
-                <a href="support.html" class="btn">📞 الدعم الفني</a>
-            </div>
-        </header>
-        
-        <div class="instructions">
-            <h2>📝 التعليمات التفصيلية</h2>
-            
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>تنزيل وتحديث الأدوات:</h3>
-                <div class="code-block">
-                    <span>apt update && apt upgrade -y</span>
-                    <button class="copy-btn" onclick="copyToClipboard('apt update && apt upgrade -y')">نسخ الأمر</button>
-                </div>
-                <p>قم بتنفيذ هذا الأمر في تطبيق Termux لتحديث النظام وتثبيت جميع التحديثات المطلوبة</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>تشغيل سكريبت التثبيت:</h3>
-                <div class="code-block">
-                    <span>curl -o install.sh https://ha-vps.store/install && bash install.sh</span>
-                    <button class="copy-btn" onclick="copyToClipboard('curl -o install.sh https://ha-vps.store/install && bash install.sh')">نسخ الأمر</button>
-                </div>
-                <p>سيقوم هذا الأمر بتنزيل وتشغيل سكريبت التثبيت تلقائياً. انتظر حتى انتهاء العملية.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>إدخال كلمة المرور المطلوبة:</h3>
-                <div class="code-block">
-                    <span>abc123</span>
-                    <button class="copy-btn" onclick="copyToClipboard('abc123')">نسخ كلمة المرور</button>
-                </div>
-                <p>عندما يطلب منك النظام، قم بإدخال كلمة المرور هذه لإتمام عملية التثبيت</p>
-            </div>
-            
-            <div class="buttons-row">
-                <button class="btn btn-success" onclick="copyAllCommands()">📋 نسخ جميع الأوامر</button>
-                <button class="btn" onclick="showVideoTutorial()">🎬 شرح بالفيديو</button>
-            </div>
-            
-            <div id="successMessage" style="display: none;">
-                <div class="success-message">
-                    <h3 style="color: #00ffaa; margin-bottom: 15px;">🎊 تهانينا! تم بنجاح</h3>
-                    <p style="font-size: 18px;">لقد قمت بتنفيذ جميع الخطوات بنجاح</p>
-                    <p style="margin: 10px 0;">يمكنك الآن استخدام الحساب المجاني الخاص بك</p>
-                    <p style="margin-top: 15px; font-size: 16px; color: #ccc;">للرجوع إلى التطبيق، اضغط على زر العودة في هاتفك</p>
-                </div>
-            </div>
-            
-            <div class="note">
-                <strong>⚠️ ملاحظات هامة:</strong><br>
-                1. تأكد من اتصالك بالإنترنت أثناء تنفيذ هذه الخطوات.<br>
-                2. قد تستغرق العملية من 2-5 دقائق حتى تكتمل.<br>
-                3. لا تغلق تطبيق Termux أثناء عملية التثبيت.<br>
-                4. في حالة حدوث أي خطأ، أعد تشغيل التطبيق وحاول مرة أخرى.
-            </div>
-        </div>
-        
-        <div class="quick-actions">
-            <h3>⚡ إجراءات سريعة</h3>
-            <div class="action-buttons">
-                <button class="btn btn-success" onclick="markAsCompleted()">✅ تم تنفيذ الخطوات</button>
-                <button class="btn" onclick="restartInstructions()">🔄 إعادة البدء</button>
-                <a href="support.html" class="btn btn-secondary">🆘 طلب مساعدة</a>
-            </div>
-        </div>
-        
-        <div class="buttons-row">
-            <a href="troubleshoot.html" class="btn btn-warning">🔍 استكشاف الأخطاء</a>
-            <a href="faq.html" class="btn btn-secondary">❓ الأسئلة الشائعة</a>
-            <a href="downloads.html" class="btn">📥 التنزيلات</a>
-        </div>
-        
-        <footer>
-            <p>هذه الصفحة لأغراض تعليمية وتوضيحية فقط</p>
-            <p>© 2023 - جميع الحقوق محفوظة</p>
-        </footer>
-    </div>
 
-    <script>
-        // دالة نسخ النص إلى الحافظة
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    // إظهار رسالة نجاح مؤقتة
-                    const originalText = event.target.textContent;
-                    event.target.textContent = 'تم النسخ!';
-                    event.target.style.background = 'rgba(0, 255, 170, 0.4)';
-                    
-                    setTimeout(() => {
-                        event.target.textContent = originalText;
-                        event.target.style.background = 'rgba(0, 255, 170, 0.2)';
-                    }, 1500);
-                })
-                .catch(err => {
-                    console.error('فشل في النسخ: ', err);
-                    // طريقة بديلة للنسخ
-                    const textArea = document.createElement('textarea');
-                    textArea.value = text;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    
-                    // إظهار رسالة نجاح
-                    alert('تم نسخ النص إلى الحافظة!');
-                });
-        }
-        
-        // نسخ جميع الأوامر مرة واحدة
-        function copyAllCommands() {
-            const commands = `# الخطوة الأولى: تحديث النظام
-apt update && apt upgrade -y
+<div class="card">
+    <h2>🔥 بطاقة الاشتراك VIP</h2>
+    <p>مدة الاشتراك: 30 يوم</p>
+    <p>الثمن: 5$</p>
 
-# الخطوة الثانية: تنزيل وتشغيل سكريبت التثبيت
-curl -o install.sh https://ha-vps.store/install && bash install.sh
+    <a href="404.html" class="btn">طلب المساعدة</a>
+    <a href="404.html" class="btn">الأسئلة الشائعة</a>
+    <a href="404.html" class="btn">معلومات إضافية</a>
+    <a href="404.html" class="btn">التواصل معنا</a>
+</div>
 
-# الخطوة الثالثة: كلمة المرور المطلوبة
-abc123`;
-            
-            copyToClipboard(commands);
-            
-            // إظهار رسالة تأكيد
-            setTimeout(() => {
-                alert('تم نسخ جميع الأوامر إلى الحافظة!');
-            }, 100);
-        }
-        
-        // دالة تمييز الإكمال
-        function markAsCompleted() {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.style.display = 'block';
-            
-            // تمرير سلس إلى الرسالة
-            successMessage.scrollIntoView({ behavior: 'smooth' });
-            
-            // تعطيل زر الإكمال
-            const completeBtn = document.querySelector('.btn-success');
-            completeBtn.disabled = true;
-            completeBtn.textContent = '✅ تم الإكمال';
-            completeBtn.style.opacity = '0.7';
-            
-            // إظهار رسالة تأكيد
-            setTimeout(() => {
-                alert('مبروك! تم إكمال جميع الخطوات بنجاح.');
-            }, 300);
-        }
-        
-        // دالة إعادة البدء
-        function restartInstructions() {
-            if (confirm('هل تريد إعادة تعليمات التثبيت من البداية؟')) {
-                location.reload();
-            }
-        }
-        
-        // دالة عرض فيديو الشرح
-        function showVideoTutorial() {
-            alert('سيتم توجيهك إلى صفحة فيديو الشرح قريباً...');
-            // يمكنك تغيير هذا ليفتح صفحة الفيديو
-            // window.location.href = 'tutorial.html';
-        }
-        
-        // تحسين تجربة المستخدم على الهواتف
-        document.addEventListener('DOMContentLoaded', function() {
-            // إضافة تأثيرات للأزرار عند اللمس
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
-                });
-                
-                button.addEventListener('touchend', function() {
-                    this.style.transform = '';
-                });
-            });
-            
-            // تحسين عرض الأكواد على الشاشات الصغيرة
-            const codeBlocks = document.querySelectorAll('.code-block');
-            codeBlocks.forEach(block => {
-                if (window.innerWidth < 768) {
-                    block.style.fontSize = '14px';
-                    block.style.padding = '12px';
-                }
-            });
-        });
-    </script>
+<div class="card">
+    <h2>⭐ بطاقة مجانية</h2>
+    <p>مدة الاستخدام: 7 أيام</p>
+
+    <a href="404.html" class="btn">طلب المساعدة</a>
+    <a href="404.html" class="btn">الأسئلة الشائعة</a>
+    <a href="404.html" class="btn">معلومات إضافية</a>
+    <a href="404.html" class="btn">التواصل معنا</a>
+</div>
+
 </body>
 </html>
