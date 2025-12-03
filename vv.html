@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Get Account</title>
+<style>
+body { font-family: Arial; text-align: center; background: #111; color: #fff; padding: 20px; }
+.btn {
+    background: #00eaff;
+    padding: 14px 25px;
+    border-radius: 10px;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#timer { display:none; font-size:25px; margin-top:15px; color:#00ff8c; }
+#adBox { display:none; margin-top:20px; background:#000; padding:10px; border-radius:10px; }
+</style>
+</head>
+<body>
+
+<h2>اضغط على الزر للحصول على الحساب</h2>
+
+<button class="btn" id="startBtn">احصل على الحساب</button>
+
+<div id="adBox">
+    <h3>🎥 شاهد الإعلان لإكمال العملية</h3>
+
+    <!-- Magsrv Ad -->
+    <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+    <ins class="eas6a97888e2" data-zoneid="5788170"></ins>
+    <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+</div>
+
+<h3 id="timer">⏳ الرجاء الانتظار...</h3>
+
+<script>
+document.getElementById("startBtn").onclick = function () {
+    // إخفاء الزر وإظهار الإعلان
+    document.getElementById("startBtn").style.display = "none";
+    document.getElementById("adBox").style.display = "block";
+
+    // بدء المراقبة حتى يبدأ الإعلان فعلياً
+    waitForAdStart();
+};
+
+let adStarted = false;
+
+function waitForAdStart() {
+    let checker = setInterval(() => {
+        let adFrame = document.querySelector("ins iframe");
+
+        if (adFrame) {
+            adStarted = true;
+        }
+
+        if (adStarted) {
+            clearInterval(checker);
+            startTimer();
+        }
+
+    }, 1000);
+}
+
+function startTimer() {
+    let timerText = document.getElementById("timer");
+    timerText.style.display = "block";
+
+    let seconds = 30;
+
+    let interval = setInterval(() => {
+        timerText.textContent = "⏳ الانتظار: " + seconds + " ثانية...";
+        seconds--;
+
+        if (seconds < 0) {
+            clearInterval(interval);
+
+            // عند الإنتهاء → تحويل لصفحة الحساب
+            window.location.href = "https://ha-vps.store/account";
+        }
+    }, 1000);
+}
+
+// منع الغش بالخروج من الصفحة
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        location.reload();
+    }
+});
+</script>
+
+</body>
+</html>
