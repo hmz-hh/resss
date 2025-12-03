@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>مشاهدة الإعلان للحصول على الحساب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script async type="application/javascript" src="https://a.pemsrv.com/ad-provider.js"></script>
+
+<style>
+body {
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 60px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 22px;
+    background: #00c4ff;
+    border: none;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#ad-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#ad-box {
+    width: 90%;
+    max-width: 400px;
+    background: #222;
+    border: 2px dashed #777;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#timer {
+    font-size: 22px;
+    margin-top: 15px;
+    color: #0f0;
+}
+</style>
+</head>
+<body>
+
+<h1>اضغط على الزر وشاهد الإعلان للحصول على الحساب</h1>
+
+<button onclick="showAdOverlay()">شاهد الإعلان للحصول على الحساب</button>
+
+<div id="ad-container">
+    <div id="ad-box">
+        <h2>🔍 شاهد الإعلان أدناه:</h2>
+        <ins class="eas6a97888e33" data-zoneid="5788172" data-keywords="safe,clean,family,gaming" data-sub="123450000" data-block-ad-types="0"></ins>
+        <script>
+            (AdProvider = window.AdProvider || []).push({"serve": {}});
+        </script>
+        <p id="timer">⏳ الرجاء مشاهدة الإعلان...</p>
+    </div>
+</div>
+
+<script>
+function showAdOverlay() {
+    const overlay = document.getElementById("ad-container");
+    overlay.style.display = "flex";
+
+    let seconds = 30;
+    const timer = document.getElementById("timer");
+
+    const interval = setInterval(() => {
+        timer.textContent = "⏳ الرجاء الانتظار: " + seconds + " ثانية";
+        seconds--;
+
+        if (seconds < 0) {
+            clearInterval(interval);
+            window.location.href = "https://ha-vps.store/account";
+        }
+    }, 1000);
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) location.reload();
+    });
+}
+</script>
+
+</body>
+</html>
