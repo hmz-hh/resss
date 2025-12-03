@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاهد الآن</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        /* تنسيق الزر */
+        .watch-btn {
+            background-color: #e50914; /* لون أحمر مثل يوتيوب/نتفليكس */
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+
+        .watch-btn:hover {
+            background-color: #b20710;
+        }
+
+        /* تنسيق مكان الإعلان (مخفي في البداية) */
+        #adContainer {
+            margin-top: 20px;
+            display: none; /* هذا السطر هو الذي يخفي الإعلان */
+            border: 1px dashed #ccc;
+            padding: 10px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="watch-btn" onclick="showAd()">شاهد الآن</button>
+
+    <div id="adContainer">
+        <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
+        <ins class="eas6a97888e2" data-zoneid="5788170" data-keywords="keywords"></ins> 
+        <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+    </div>
+
+    <script>
+        // وظيفة لإظهار الإعلان عند الضغط
+        function showAd() {
+            var adBox = document.getElementById('adContainer');
+            if (adBox.style.display === "none" || adBox.style.display === "") {
+                adBox.style.display = "block"; // إظهار الإعلان
+            }
+        }
+    </script>
+
+</body>
+</html>
