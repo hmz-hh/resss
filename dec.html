@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شاهد الإعلان</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #adContainer {
+    display: none; /* الإعلان مخفي مبدئيا */
+    margin-top: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  button:hover {
+    background-color: #218838;
+  }
+</style>
+</head>
+<body>
+
+<h1>شاهد الإعلان للحصول على الحساب</h1>
+<button onclick="document.getElementById('adContainer').style.display='block'; this.style.display='none';">شاهد الآن</button>
+
+<div id="adContainer">
+  <!-- كود الإعلان من ExoClick -->
+  <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+  <ins class="eas6a97888e2" data-zoneid="5788170" data-keywords="keywords"></ins>
+  <script>
+    (AdProvider = window.AdProvider || []).push({"serve": {}});
+  </script>
+</div>
+
+</body>
+</html>
